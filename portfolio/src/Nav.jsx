@@ -3,16 +3,18 @@ import { useState } from 'react'
 
 const Nav = ({theme,setTheme}) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const preventNavScroll = (e)=> e.preventDefault();
   return (
-   <nav className="relative bg-nav-bg w-full p-4 flex items-center justify-between gap-x-11 border-solid border-b border-nav-text shadow-nav-glow  ">
+   <nav className="relative z-50 bg-nav-bg w-full p-4 flex items-center justify-between gap-x-11 border-solid border-b border-nav-text shadow-nav-glow">
   
 
     <ul className="hidden md:flex flex-row gap-x-15 mx-auto">
-        <a className ="text-nav-text hover:text-nav-accent "href="./AboutMe.jsx">About Me</a>
-        <a className ="text-nav-text hover:text-nav-accent "href="./Education.jsx">Education</a>
-        <a className = "text-nav-text hover:text-nav-accent" href="./Projects.jsx">Projects</a>
-        <a className="text-nav-text hover:text-nav-accent" href="./Skills.jsx">Skills</a>
-        <a className="text-nav-text hover:text-nav-accent" href="./Contact.jsx">Contact</a>
+        <a className ="text-nav-text hover:text-nav-accent " onClick={preventNavScroll}  href="#aboutMe">About Me</a>
+        <a className ="text-nav-text hover:text-nav-accent " onClick={preventNavScroll}  href="./Education.jsx">Education</a>
+        <a className = "text-nav-text hover:text-nav-accent" onClick={preventNavScroll}  href="./Projects.jsx">Projects</a>
+        <a className="text-nav-text hover:text-nav-accent" onClick={preventNavScroll}  href="./Skills.jsx">Skills</a>
+        <a className="text-nav-text hover:text-nav-accent" onClick={preventNavScroll}  href="./Contact.jsx">Contact</a>
  
     </ul>
 
@@ -34,19 +36,19 @@ const Nav = ({theme,setTheme}) => {
   {isMenuOpen && (
     <div>
 
-           <div className="md:hidden absolute top-full left-0 w-full bg-nav-bg p-4 flex flex-col gap-y-4 ">
-                <a className="text-nav-text hover:text-nav-accent border-solid border-nav-text border-b " href="">About Me</a>
-                <a className="text-nav-text hover:text-nav-accent border-solid border-nav-text border-b" href="">Education</a>
-                <a className="text-nav-text hover:text-nav-accent border-solid border-nav-text border-b" href="">Projects</a>
-                <a className="text-nav-text hover:text-nav-accent border-solid border-nav-text border-b" href="">Skills</a>
-                <a className="text-nav-text hover:text-nav-accent border-solid border-nav-text border-b" href="">Contact</a>
+           <div className="md:hidden absolute top-full left-0 z-50 w-full bg-nav-bg p-4 flex flex-col gap-y-4 shadow-nav-glow">
+                <a className="text-nav-text hover:text-nav-accent border-solid border-nav-text border-b " onClick={preventNavScroll} href="#aboutMe">About Me</a>
+                <a className="text-nav-text hover:text-nav-accent border-solid border-nav-text border-b" onClick={preventNavScroll} href="">Education</a>
+                <a className="text-nav-text hover:text-nav-accent border-solid border-nav-text border-b" onClick={preventNavScroll}  href="">Projects</a>
+                <a className="text-nav-text hover:text-nav-accent border-solid border-nav-text border-b" onClick={preventNavScroll} href="">Skills</a>
+                <a className="text-nav-text hover:text-nav-accent border-solid border-nav-text border-b" onClick={preventNavScroll} href="">Contact</a>
             </div>
 
-      <div className="absolute right-17 bottom-3.5 md:hidden">
+      <div className="absolute right-17 bottom-3.5 z-50 md:hidden">
             <select 
             value={theme} onChange={(e) => setTheme(e.target.value)}
             className=" bg-nav-bg text-nav-text border-solid  border-b  p-2 w-full hover:text-nav-accent"
-            >   <option value="" disabled hidden className=" m-1 text-center">Change Theme</option>
+            >   <option value="" className=" m-1 text-center">Change Theme</option>
                 <option value="dark"  className="bg-nav-bg text-nav-text m-1 text-center">Dark</option>
                 <option value="cozy"  className="bg-nav-bg text-nav-text m-1 text-center">Cozy</option>
             </select>
