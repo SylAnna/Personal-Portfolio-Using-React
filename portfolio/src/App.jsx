@@ -8,6 +8,7 @@ import Contact from './Contact'
 import Education from './Education'
 import Skills from './Skills'
 
+
 function App() {
   const [theme, setTheme] = useState('')
 

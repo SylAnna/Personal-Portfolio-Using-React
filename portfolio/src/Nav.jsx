@@ -37,6 +37,8 @@ const Nav = ({ theme, setTheme }) => {
             <option value="">Default Theme</option>
             <option value="dark">Dark</option>
             <option value="cozy">Cozy</option>
+            <option value="bubblegum">Bubblegum</option>
+            <option value="cyberpunk">Cyberpunk</option>
           </select>
         </div>
 
@@ -46,9 +48,11 @@ const Nav = ({ theme, setTheme }) => {
             onChange={(e) => setTheme(e.target.value)}
             className="w-28 rounded-sm border border-nav-text bg-nav-bg px-3 py-2 text-xs text-nav-text outline-none hover:text-nav-accent sm:w-32 sm:text-sm"
           >
-            <option value="">Theme</option>
+            <option value="">Default Theme</option>
             <option value="dark">Dark</option>
             <option value="cozy">Cozy</option>
+            <option value="bubblegum">Bubblegum</option>
+            <option value="cyberpunk">Cyberpunk</option>
           </select>
 
           <button

@@ -6,7 +6,7 @@ const AboutMe = () => {
           <p className="mb-3 text-sm font-bold uppercase tracking-wide text-nav-accent">
             Hello, I&apos;m
           </p>
-          <h1 className="text-5xl font-bold leading-none text-page-content sm:text-6xl lg:text-7xl">
+          <h1 className="inline-block w-0 overflow-hidden whitespace-nowrap border-r-2 border-page-content text-5xl font-bold leading-none text-page-content animate-typewriter-name sm:text-6xl lg:text-7xl">
             Sylvia
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-7 text-page-content sm:text-lg">
@@ -54,7 +54,7 @@ const AboutMe = () => {
 
         <div className="order-1 flex justify-center lg:order-2">
           <div className="flex h-64 w-64 items-center justify-center rounded-full border-8 border-nav-accent bg-nav-text shadow-md sm:h-80 sm:w-80 lg:h-96 lg:w-96">
-            <span className="text-7xl font-bold text-page-content sm:text-8xl lg:text-9xl">
+            <span className="text-[400] font-bold text-page-content sm:text-8xl lg:text-9xl">
               S
             </span>
           </div>

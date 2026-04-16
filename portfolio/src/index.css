@@ -8,6 +8,17 @@ body {
   min-width: 320px;
 }
 
+@keyframes typing {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 6ch;
+  }
+}
+
+
 @theme {
   --color-nav-bg: #000000;
   --color-nav-text: #ffffff;
@@ -19,6 +30,7 @@ body {
   --radius-5xl: 140rem;
   --color-page-content:#000000;
   --shadow-nav-glow: 0 0 0 0 transparent;
+  --animate-typewriter-name: typing 2s steps(6, end) forwards;
 }
 
 [data-theme="cozy"] {
@@ -32,6 +44,7 @@ body {
   --color-projects-btn:rgb(149, 179, 136);
   --shadow-nav-glow: 0 0 0 0 transparent;
 
+
 }
 
 [data-theme="dark"] {
@@ -43,7 +56,36 @@ body {
   --color-footer-bg:#0E0B1E;
   --color-page-content: white;
   --color-projects-btn:rgb(143, 58, 255);
- --shadow-nav-glow: 0 0 24px 4px rgb(127 119 221 / 0.45),
+ --shadow-nav-glow: 4px 4px 24px 4px rgba(201, 101, 255, 0.764),
   0 0 12px 2px rgb(242 146 247 / 0.35);
 
+
 }
+[data-theme="bubblegum"] {
+  --color-nav-bg: #ffb6d9;
+  --color-nav-text: #5a2144;
+  --color-nav-accent: #ff4fa3;
+  --color-section-divider: #ff6bb5;
+  --color-content-bg: #ffe3f1;
+  --color-footer-bg: #ffb6d9;
+  --color-page-content: #4a1838;
+  --color-projects-btn: #ff4fa3;
+  --shadow-nav-glow: 0 0 0 0 transparent;
+
+}
+
+[data-theme="cyberpunk"] {
+  --color-nav-bg: #0a0f1f;
+  --color-nav-text: #8ef9f3;
+  --color-nav-accent: #ff2e88;
+  --color-section-divider: #00f5d4;
+  --color-content-bg: #11162a;
+  --color-footer-bg: #090d18;
+  --color-page-content: #f4f7ff;
+  --color-projects-btn: #ff2e88;
+  --shadow-nav-glow:
+    0 0 20px 3px rgb(0 245 212 / 0.35),
+    0 0 10px 2px rgb(255 46 136 / 0.25);
+
+}
+
