@@ -1,13 +1,12 @@
-import React from 'react'
-
 const Footer = () => {
-  const date = new Date();
+  const date = new Date()
 
   return (
-    <div className="p-2 text-center bg-footer-bg text-nav-text">
-
-      <p>Copyright &copy; {date.getFullYear()}</p>
-    </div>
+    <footer className="border-t-2 border-section-divider bg-footer-bg">
+      <div className="mx-auto max-w-6xl px-4 py-5 text-center text-sm text-nav-text sm:px-6 lg:px-8">
+        Copyright &copy; {date.getFullYear()} Sylvia&apos;s Personal Portfolio
+      </div>
+    </footer>
   )
 }
 

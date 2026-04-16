@@ -1,64 +1,84 @@
-import React from 'react'
 import { useState } from 'react'
 
-const Nav = ({theme,setTheme}) => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+const Nav = ({ theme, setTheme }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-    const preventNavScroll = (e)=> e.preventDefault();
   return (
-   <nav className="relative z-50 bg-nav-bg w-full p-4 flex items-center justify-between gap-x-11 border-solid border-b border-nav-text shadow-nav-glow">
-  
+    <nav className="sticky top-0 z-50 border-b border-nav-text bg-nav-bg">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
+        <a href="#about" className="text-lg font-bold text-nav-text hover:text-nav-accent">
+          Sylvia
+        </a>
 
-    <ul className="hidden md:flex flex-row gap-x-15 mx-auto">
-        <a className ="text-nav-text hover:text-nav-accent " onClick={preventNavScroll}  href="#aboutMe">About Me</a>
-        <a className ="text-nav-text hover:text-nav-accent " onClick={preventNavScroll}  href="./Education.jsx">Education</a>
-        <a className = "text-nav-text hover:text-nav-accent" onClick={preventNavScroll}  href="./Projects.jsx">Projects</a>
-        <a className="text-nav-text hover:text-nav-accent" onClick={preventNavScroll}  href="./Skills.jsx">Skills</a>
-        <a className="text-nav-text hover:text-nav-accent" onClick={preventNavScroll}  href="./Contact.jsx">Contact</a>
- 
-    </ul>
+        <ul className="hidden items-center gap-6 text-sm lg:flex">
+          <li>
+            <a className="text-nav-text hover:text-nav-accent" href="#about">About</a>
+          </li>
+          <li>
+            <a className="text-nav-text hover:text-nav-accent" href="#education">Education</a>
+          </li>
+          <li>
+            <a className="text-nav-text hover:text-nav-accent" href="#projects">Projects</a>
+          </li>
+          <li>
+            <a className="text-nav-text hover:text-nav-accent" href="#skills">Skills</a>
+          </li>
+          <li>
+            <a className="text-nav-text hover:text-nav-accent" href="#contact">Contact</a>
+          </li>
+        </ul>
 
-    <h1 className="pointer-events-none absolute left-1/2 -translate-x-[150px] text-nav-text font-bold text-xl md:text-3xl whitespace-nowrap md:hidden">
-      Sylvia's Personal Portfolio
-    </h1>
-
- <div className="relative md:hidden flex flex-row gap-x-5 ">
-        <div 
-        onClick={()=>setIsMenuOpen(!isMenuOpen)}
-        className=" w-8 h-6 flex flex-col justify-between m-left gap-y-1 cursor-pointer md:hidden">
-            <div className="w-full h-1 rounded bg-nav-text"></div>
-            <div className=" w-full h-1 rounded bg-nav-text"></div>
-            <div className=" w-full h-1 rounded bg-nav-text"></div>
-            
-        </div> 
-    </div>
-
-  {isMenuOpen && (
-    <div>
-
-           <div className="md:hidden absolute top-full left-0 z-50 w-full bg-nav-bg p-4 flex flex-col gap-y-4 shadow-nav-glow">
-                <a className="text-nav-text hover:text-nav-accent border-solid border-nav-text border-b " onClick={preventNavScroll} href="#aboutMe">About Me</a>
-                <a className="text-nav-text hover:text-nav-accent border-solid border-nav-text border-b" onClick={preventNavScroll} href="">Education</a>
-                <a className="text-nav-text hover:text-nav-accent border-solid border-nav-text border-b" onClick={preventNavScroll}  href="">Projects</a>
-                <a className="text-nav-text hover:text-nav-accent border-solid border-nav-text border-b" onClick={preventNavScroll} href="">Skills</a>
-                <a className="text-nav-text hover:text-nav-accent border-solid border-nav-text border-b" onClick={preventNavScroll} href="">Contact</a>
-            </div>
-
-      <div className="absolute right-17 bottom-3.5 z-50 md:hidden">
-            <select 
-            value={theme} onChange={(e) => setTheme(e.target.value)}
-            className=" bg-nav-bg text-nav-text border-solid  border-b  p-2 w-full hover:text-nav-accent"
-            >   <option value="" className=" m-1 text-center">Change Theme</option>
-                <option value="dark"  className="bg-nav-bg text-nav-text m-1 text-center">Dark</option>
-                <option value="cozy"  className="bg-nav-bg text-nav-text m-1 text-center">Cozy</option>
-            </select>
+        <div className="hidden lg:block">
+          <select
+            value={theme}
+            onChange={(e) => setTheme(e.target.value)}
+            className="rounded-sm border border-nav-text bg-nav-bg px-4 py-2 text-sm text-nav-text outline-none hover:text-nav-accent"
+          >
+            <option value="">Default Theme</option>
+            <option value="dark">Dark</option>
+            <option value="cozy">Cozy</option>
+          </select>
         </div>
-             
-    </div>
-  )}
 
+        <div className="flex items-center gap-3 lg:hidden">
+          <select
+            value={theme}
+            onChange={(e) => setTheme(e.target.value)}
+            className="w-28 rounded-sm border border-nav-text bg-nav-bg px-3 py-2 text-xs text-nav-text outline-none hover:text-nav-accent sm:w-32 sm:text-sm"
+          >
+            <option value="">Theme</option>
+            <option value="dark">Dark</option>
+            <option value="cozy">Cozy</option>
+          </select>
 
-   </nav>
+          <button
+            type="button"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="flex h-10 w-10 items-center justify-center text-nav-text hover:text-nav-accent"
+            aria-label="Toggle navigation menu"
+            aria-expanded={isMenuOpen}
+          >
+            <span className="flex w-5 flex-col gap-1.5">
+              <span className="h-0.5 rounded bg-current"></span>
+              <span className="h-0.5 rounded bg-current"></span>
+              <span className="h-0.5 rounded bg-current"></span>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      {isMenuOpen && (
+        <div className="border-t border-nav-text bg-nav-bg lg:hidden">
+          <div className="mx-auto flex max-w-6xl flex-col px-4 py-4 sm:px-6">
+            <a className="border-b border-nav-text px-2 py-3 text-nav-text hover:text-nav-accent" href="#about" onClick={() => setIsMenuOpen(false)}>About</a>
+            <a className="border-b border-nav-text px-2 py-3 text-nav-text hover:text-nav-accent" href="#education" onClick={() => setIsMenuOpen(false)}>Education</a>
+            <a className="border-b border-nav-text px-2 py-3 text-nav-text hover:text-nav-accent" href="#projects" onClick={() => setIsMenuOpen(false)}>Projects</a>
+            <a className="border-b border-nav-text px-2 py-3 text-nav-text hover:text-nav-accent" href="#skills" onClick={() => setIsMenuOpen(false)}>Skills</a>
+            <a className="border-b border-nav-text px-2 py-3 text-nav-text hover:text-nav-accent" href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
+          </div>
+        </div>
+      )}
+    </nav>
   )
 }
 
