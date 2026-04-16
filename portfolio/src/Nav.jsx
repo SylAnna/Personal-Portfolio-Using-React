@@ -6,7 +6,7 @@ const Nav = ({ theme, setTheme }) => {
   return (
     <nav className="sticky top-0 z-50 border-b border-nav-text bg-nav-bg">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
-        <a href="#about" className="text-lg font-bold text-nav-text hover:text-nav-accent">
+        <a href="#about" className="text-lg font-semibold text-nav-text uppercase tracking-wider hover:text-nav-accent">
           Sylvia
         </a>
 
