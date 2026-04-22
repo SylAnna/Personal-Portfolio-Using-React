@@ -1,7 +1,9 @@
+import Resume from './assets/Sylvia_Anderson_Resume.pdf'
+
 const Education = () => {
   return (
     <section id="education" className="border-b-2 border-section-divider bg-content-bg">
-      <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
+      <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20 flex flex-col gap-1">
         <p className="text-sm font-bold uppercase tracking-wide text-nav-accent">Education</p>
         <h2 className="mt-3 text-3xl font-bold text-page-content sm:text-4xl">Education</h2>
         <p className="mt-4 max-w-2xl text-page-content">
@@ -22,6 +24,9 @@ const Education = () => {
         <span className="text-sm text-page-content p-2 border rounded-full bg-page-accent/50 "> Certificate in Computer Networking</span>
         <span className="text-sm text-page-content p-2 border rounded-full bg-page-accent/50 "> Certificate in Computer Programming &#183; Completed 2025</span>
         </section>
+
+        
+        <a className="mt-6 text-center text-nav-accent underline font-bold " href={Resume} download={Resume}>Download Resume</a>
 
       </div>
     </section>

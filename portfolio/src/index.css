@@ -31,13 +31,13 @@ body {
   --radius-5xl: 140rem;
   --color-page-content:#000000;
   --shadow-nav-glow: 0 0 0 0 transparent;
-  --color-page-accent:black;
+  --color-page-accent:#ee6c4d;
   --animate-typewriter-name: typing 2s steps(6, end) forwards;
 }
 
 [data-theme="cozy"] {
   --color-nav-bg: #cdbd9d;
-  --color-nav-text: #c7744e;
+  --color-nav-text: #b8643d;
   --color-nav-accent: #A84E37;
   --color-section-divider: #b96d46;
   --color-content-bg: #EDE4D3;
@@ -88,7 +88,7 @@ body {
   --color-footer-bg: #090d18;
   --color-page-content: #f4f7ff;
   --color-projects-btn: #ff2e88;
-  --color-page-accent:yellow;
+  --color-page-accent:#00ff9f;
   --shadow-nav-glow:
     0 0 20px 3px rgb(0 245 212 / 0.35),
     0 0 10px 2px rgb(255 46 136 / 0.25);

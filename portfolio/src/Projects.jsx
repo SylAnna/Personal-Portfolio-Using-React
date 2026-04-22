@@ -36,7 +36,7 @@ const Projects = () => {
 
           <a
             href="#contact"
-            className="ml-0  rounded-full bg-projects-btn px-6 py-3 text-center text-sm font-semibold text-white hover:opacity-90 lg:w-100 "
+            className="ml-0  rounded-full bg-projects-btn px-6 py-3 text-center text-sm font-semibold text-white hover:opacity-90 hover:bg-page-accent hover:text-nav-accent duration-300 lg:w-100"
           >
             Contact Me
           </a>

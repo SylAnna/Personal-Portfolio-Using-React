@@ -32,7 +32,7 @@ const AboutMe = () => {
             <div className="rounded-2xl border border-nav-accent/30 bg-nav-accent/10 p-5">
               <h2 className="text-base font-bold text-page-content">Hobbies</h2>
               <p className="mt-2 text-sm leading-6 text-page-content sm:text-base">
-                I love reading, drawing, and writing.
+                I love reading, drawing, and music.
               </p>
             </div>
 
@@ -49,12 +49,14 @@ const AboutMe = () => {
                 I got interested in tech from a Unity project in middle school and later liked programming through robotics.
               </p>
             </div>
+
+            <h1 className="font-bold text-page-accent text-3xl hidden">Check out my spotify playlists:</h1>
           </div>
         </div>
 
         <div className="order-1 flex justify-center lg:order-2">
           <div className="flex h-64 w-64 items-center justify-center rounded-full border-8 border-nav-accent bg-nav-text shadow-md sm:h-80 sm:w-80 lg:h-96 lg:w-96 animation-spin">
-            <span className="text-[400] font-bold text-page-content sm:text-8xl lg:text-9xl">
+            <span className="text-[150px] text-center font-bold text-page-content sm:text-8xl lg:text-9xl">
               S
             </span>
           </div>

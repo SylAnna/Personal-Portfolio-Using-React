@@ -47,10 +47,13 @@ const Contact = () => {
 
             <button
               type="submit"
-              className="mt-2 rounded-full bg-projects-btn px-6 py-3 text-sm font-semibold text-white hover:opacity-90"
+              className=" cursor-pointer mt-2 rounded-full bg-projects-btn px-6 py-3 text-sm font-semibold text-white hover:opacity-90"
             >
               Submit
             </button>
+
+            <textarea name="contactMessage"className="w-full h-50 p-2 bg-white border border-page-accent rounded-sm resize-none" placeholder="Type Message Here..."></textarea>
+
           </form>
         </div>
       </div>
