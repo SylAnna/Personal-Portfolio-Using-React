@@ -2,9 +2,29 @@
   "dependencies": {
     "@tanstack/react-query": "^5.96.2",
     "@tanstack/react-query-devtools": "^5.96.2",
+    "express": "^5.2.1",
     "octokit": "^5.0.5"
   },
   "devDependencies": {
     "@tanstack/eslint-plugin-query": "^5.96.2"
-  }
+  },
+  "name": "project-using-react",
+  "version": "1.0.0",
+  "description": "A personal portfolio site built with React, Vite, and Tailwind CSS. The project is organized as a portfolio application inside the `portfolio/` folder and includes sections for about, education, projects, skills, and contact information.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SylAnna/Personal-PortfolionUsing-React.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/SylAnna/Personal-PortfolionUsing-React/issues"
+  },
+  "homepage": "https://github.com/SylAnna/Personal-PortfolionUsing-React#readme"
 }

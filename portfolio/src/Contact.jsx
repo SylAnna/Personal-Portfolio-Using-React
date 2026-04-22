@@ -22,7 +22,36 @@ const Contact = () => {
             >
               Back to Top
             </a>
+
+            
           </div>
+          <form className="mt-10 flex flex-col gap-3 border-3 border-page-accent rounded-md bg-content-bg p-4 text-page-content shadow-md shadow-page-accent">
+            <label htmlFor="name" className="text-sm font-medium">
+              Name:
+            </label>
+            <input
+              id="name"
+              type="text"
+              className="rounded-md border border-nav-accent/40 bg-white px-3 py-2 text-page-content outline-none focus:border-nav-accent"
+            />
+
+            <label htmlFor="email" className="text-sm font-medium">
+              Email:
+            </label>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              className="rounded-md border border-nav-accent/40 bg-white px-3 py-2 text-page-content outline-none focus:border-nav-accent"
+            />
+
+            <button
+              type="submit"
+              className="mt-2 rounded-full bg-projects-btn px-6 py-3 text-sm font-semibold text-white hover:opacity-90"
+            >
+              Submit
+            </button>
+          </form>
         </div>
       </div>
     </section>

@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+
 html {
   scroll-behavior: smooth;
 }
@@ -30,6 +31,7 @@ body {
   --radius-5xl: 140rem;
   --color-page-content:#000000;
   --shadow-nav-glow: 0 0 0 0 transparent;
+  --color-page-accent:black;
   --animate-typewriter-name: typing 2s steps(6, end) forwards;
 }
 
@@ -42,6 +44,7 @@ body {
   --color-footer-bg:#cdbd9d;
   --color-page-content:rgb(62, 30, 1);
   --color-projects-btn:rgb(149, 179, 136);
+  --color-page-accent:#D4A017;
   --shadow-nav-glow: 0 0 0 0 transparent;
 
 
@@ -56,6 +59,7 @@ body {
   --color-footer-bg:#0E0B1E;
   --color-page-content: white;
   --color-projects-btn:rgb(143, 58, 255);
+  --color-page-accent: #64FFDA;
  --shadow-nav-glow: 4px 4px 24px 4px rgba(201, 101, 255, 0.764),
   0 0 12px 2px rgb(242 146 247 / 0.35);
 
@@ -70,6 +74,7 @@ body {
   --color-footer-bg: #ffb6d9;
   --color-page-content: #4a1838;
   --color-projects-btn: #ff4fa3;
+  --color-page-accent:#B8F0D8;
   --shadow-nav-glow: 0 0 0 0 transparent;
 
 }
@@ -83,6 +88,7 @@ body {
   --color-footer-bg: #090d18;
   --color-page-content: #f4f7ff;
   --color-projects-btn: #ff2e88;
+  --color-page-accent:yellow;
   --shadow-nav-glow:
     0 0 20px 3px rgb(0 245 212 / 0.35),
     0 0 10px 2px rgb(255 46 136 / 0.25);

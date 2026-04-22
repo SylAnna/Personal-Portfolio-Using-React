@@ -41,7 +41,7 @@ const Projects = () => {
             Contact Me
           </a>
 
-          <div className="mt-10 grid gap-4 md:grid-cols-3">
+          <div className="mt-10 grid gap-4 md:grid-cols-3 lg:grid-cols-4">
             
             {repos.map((repo) => (
               <div key={repo.id} className=" bg-content-bg rounded-2xl border border-nav-accent/30 p-5 shadow-md shadow-section-divider/50">

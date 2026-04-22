@@ -4,10 +4,10 @@ const AboutMe = () => {
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 md:py-16 lg:grid-cols-2 lg:items-center lg:gap-12 lg:px-8 lg:py-20">
         <div className="order-2 lg:order-1">
           <p className="mb-3 text-sm font-bold uppercase tracking-wide text-nav-accent">
-            Hello, I&apos;m
+            Hello, I'm
           </p>
-          <h1 className="inline-block w-0 overflow-hidden whitespace-nowrap border-r-2 border-page-content text-5xl font-bold leading-none text-page-content animate-typewriter-name sm:text-6xl lg:text-7xl">
-            Sylvia
+          <h1 className="inline-block w-0 overflow-hidden whitespace-nowrap border-r-2 border-page-content text-5xl font-bold leading-none text-page-accent animate-typewriter-name sm:text-6xl lg:text-7xl">
+        Sylvia
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-7 text-page-content sm:text-lg">
             I enjoy programming and learning new things. This portfolio is where I can show my projects, skills, and what I have been working on.
@@ -53,7 +53,7 @@ const AboutMe = () => {
         </div>
 
         <div className="order-1 flex justify-center lg:order-2">
-          <div className="flex h-64 w-64 items-center justify-center rounded-full border-8 border-nav-accent bg-nav-text shadow-md sm:h-80 sm:w-80 lg:h-96 lg:w-96">
+          <div className="flex h-64 w-64 items-center justify-center rounded-full border-8 border-nav-accent bg-nav-text shadow-md sm:h-80 sm:w-80 lg:h-96 lg:w-96 animation-spin">
             <span className="text-[400] font-bold text-page-content sm:text-8xl lg:text-9xl">
               S
             </span>
