@@ -8,6 +8,7 @@ A personal portfolio site built with React, Vite, and Tailwind CSS. The project 
 - Section-based navigation
 - Responsive navigation menu for smaller screens
 - Theme selector with multiple theme options
+- Octokit to authenticate with the GitHub API and fetch project data
 - Dedicated sections for:
   - About
   - Education
