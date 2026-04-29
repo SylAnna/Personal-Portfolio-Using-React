@@ -7,26 +7,51 @@ const Education = () => {
         <p className="text-sm font-bold uppercase tracking-wide text-nav-accent">Education</p>
         <h2 className="mt-3 text-3xl font-bold text-page-content sm:text-4xl">Education</h2>
         <p className="mt-4 max-w-2xl text-page-content">
-          I can use this section to talk about school, classes I have taken, and anything else related to my education.
+          My education is focused on computer science, cybersecurity, networking, and mathematics.
         </p>
 
-      <h1 className="text-page-content text-xl font-bold mt-10">Bachelor of Science in Computer Science</h1>
-        <span className="text-page-content font-bold mt-5">College:</span>
-        <span className="text-page-content"> Arkansas Tech University &#183; Expected May 2027 </span>
-        <p className="text-page-content"> <b>GPA: </b> 3.86</p>
-        <p className="text-page-content">Maintaining strong academic standing throughout the program</p>
-        <br />
-        <h3 className="font-bold text-page-content text-md">Additional credentials in progress at Arkansas Tech University</h3>
-        <section className="flex flex-row flex-wrap gap-1 mt-2">
-        <span className="text-sm text-page-content p-2 border rounded-full bg-page-accent/50 "> A.S Information Technology</span>
-        <span className="text-sm text-page-content p-2 border rounded-full bg-page-accent/50 "> A.S Cybersecurity</span>
-        <span className="text-sm text-page-content p-2 border rounded-full bg-page-accent/50 "> Cerificiate in Mathematics</span>
-        <span className="text-sm text-page-content p-2 border rounded-full bg-page-accent/50 "> Certificate in Computer Networking</span>
-        <span className="text-sm text-page-content p-2 border rounded-full bg-page-accent/50 "> Certificate in Computer Programming &#183; Completed 2025</span>
-        </section>
+        <div className="mt-10 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <div className="border-l-4 border-page-accent pl-6">
+            <p className="text-sm font-bold uppercase tracking-wide text-nav-accent">Arkansas Tech University</p>
+            <h1 className="mt-2 text-page-content text-2xl font-bold">Bachelor of Science in Computer Science</h1>
+            <p className="mt-3 text-page-content">Expected May 2027</p>
+
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              <p className="bg-nav-accent/10 p-4 text-page-content shadow-sm">
+                <b>GPA:</b> 3.86
+              </p>
+              <p className="bg-nav-accent/10 p-4 text-page-content shadow-sm">
+                <b>Focus:</b> Software Development
+              </p>
+              <p className="bg-nav-accent/10 p-4 text-page-content shadow-sm">
+                <b>Learning:</b> Cybersecurity
+              </p>
+              <p className="bg-nav-accent/10 p-4 text-page-content shadow-sm">
+                <b>Goal:</b> Keep improving
+              </p>
+            </div>
+
+            <p className="mt-6 leading-7 text-page-content">
+              Maintaining strong academic standing throughout the program while building projects and continuing to improve my programming skills.
+            </p>
+          </div>
+
+          <div className="bg-nav-accent/10 p-6 shadow-md shadow-section-divider/30">
+            <h3 className="font-bold text-page-content text-xl">Additional credentials</h3>
+            <p className="mt-2 text-page-content">In progress at Arkansas Tech University</p>
+
+            <section className="mt-5 grid gap-3">
+              <span className="border-l-4 border-page-accent bg-content-bg p-3 text-sm text-page-content shadow-sm">A.S Information Technology</span>
+              <span className="border-l-4 border-page-accent bg-content-bg p-3 text-sm text-page-content shadow-sm">A.S Cybersecurity</span>
+              <span className="border-l-4 border-page-accent bg-content-bg p-3 text-sm text-page-content shadow-sm">Certificate in Mathematics</span>
+              <span className="border-l-4 border-page-accent bg-content-bg p-3 text-sm text-page-content shadow-sm">Certificate in Computer Networking</span>
+              <span className="border-l-4 border-page-accent bg-content-bg p-3 text-sm text-page-content shadow-sm">Certificate in Computer Programming &#183; Completed 2025</span>
+            </section>
+          </div>
+        </div>
 
         
-        <a className="mt-6 text-center text-nav-accent underline font-bold " href={Resume} download={Resume}>Download Resume</a>
+        <a className="mt-8 w-fit rounded-full bg-projects-btn px-6 py-3 text-center text-sm font-semibold text-white hover:opacity-90" href={Resume} download={Resume}>Download Resume</a>
 
       </div>
     </section>

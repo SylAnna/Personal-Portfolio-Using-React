@@ -1,30 +1,41 @@
 import { useState } from 'react'
 
-const Nav = ({ theme, setTheme }) => {
+const Nav = ({ theme, setTheme, showMessages }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
     <nav className="sticky top-0 z-50 border-b border-nav-text bg-nav-bg">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
-        <a href="#about" className="text-lg font-semibold text-nav-text uppercase tracking-wider hover:text-nav-accent">
+        <a href={showMessages ? "/" : "#about"} className="text-lg font-semibold text-nav-text uppercase tracking-wider hover:text-nav-accent">
           Sylvia
         </a>
 
         <ul className="hidden items-center gap-6 text-sm lg:flex">
+          {showMessages ? (
+            <li>
+              <a className="text-nav-text hover:text-nav-accent" href="/">Home</a>
+            </li>
+          ) : (
+            <>
+              <li>
+                <a className="text-nav-text hover:text-nav-accent" href="#about">About</a>
+              </li>
+              <li>
+                <a className="text-nav-text hover:text-nav-accent" href="#education">Education</a>
+              </li>
+              <li>
+                <a className="text-nav-text hover:text-nav-accent" href="#projects">Projects</a>
+              </li>
+              <li>
+                <a className="text-nav-text hover:text-nav-accent" href="#skills">Skills</a>
+              </li>
+              <li>
+                <a className="text-nav-text hover:text-nav-accent" href="#contact">Contact</a>
+              </li>
+            </>
+          )}
           <li>
-            <a className="text-nav-text hover:text-nav-accent" href="#about">About</a>
-          </li>
-          <li>
-            <a className="text-nav-text hover:text-nav-accent" href="#education">Education</a>
-          </li>
-          <li>
-            <a className="text-nav-text hover:text-nav-accent" href="#projects">Projects</a>
-          </li>
-          <li>
-            <a className="text-nav-text hover:text-nav-accent" href="#skills">Skills</a>
-          </li>
-          <li>
-            <a className="text-nav-text hover:text-nav-accent" href="#contact">Contact</a>
+            <a className="text-nav-text hover:text-nav-accent" href="/?view=messages">Messages</a>
           </li>
         </ul>
 
@@ -74,11 +85,18 @@ const Nav = ({ theme, setTheme }) => {
       {isMenuOpen && (
         <div className="border-t border-nav-text bg-nav-bg lg:hidden">
           <div className="mx-auto flex max-w-6xl flex-col px-4 py-4 sm:px-6">
-            <a className="border-b border-nav-text px-2 py-3 text-nav-text hover:text-nav-accent" href="#about" onClick={() => setIsMenuOpen(false)}>About</a>
-            <a className="border-b border-nav-text px-2 py-3 text-nav-text hover:text-nav-accent" href="#education" onClick={() => setIsMenuOpen(false)}>Education</a>
-            <a className="border-b border-nav-text px-2 py-3 text-nav-text hover:text-nav-accent" href="#projects" onClick={() => setIsMenuOpen(false)}>Projects</a>
-            <a className="border-b border-nav-text px-2 py-3 text-nav-text hover:text-nav-accent" href="#skills" onClick={() => setIsMenuOpen(false)}>Skills</a>
-            <a className="border-b border-nav-text px-2 py-3 text-nav-text hover:text-nav-accent" href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
+            {showMessages ? (
+              <a className="border-b border-nav-text px-2 py-3 text-nav-text hover:text-nav-accent" href="/" onClick={() => setIsMenuOpen(false)}>Home</a>
+            ) : (
+              <>
+                <a className="border-b border-nav-text px-2 py-3 text-nav-text hover:text-nav-accent" href="#about" onClick={() => setIsMenuOpen(false)}>About</a>
+                <a className="border-b border-nav-text px-2 py-3 text-nav-text hover:text-nav-accent" href="#education" onClick={() => setIsMenuOpen(false)}>Education</a>
+                <a className="border-b border-nav-text px-2 py-3 text-nav-text hover:text-nav-accent" href="#projects" onClick={() => setIsMenuOpen(false)}>Projects</a>
+                <a className="border-b border-nav-text px-2 py-3 text-nav-text hover:text-nav-accent" href="#skills" onClick={() => setIsMenuOpen(false)}>Skills</a>
+                <a className="border-b border-nav-text px-2 py-3 text-nav-text hover:text-nav-accent" href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
+              </>
+            )}
+            <a className="border-b border-nav-text px-2 py-3 text-nav-text hover:text-nav-accent" href="/?view=messages" onClick={() => setIsMenuOpen(false)}>Messages</a>
           </div>
         </div>
       )}

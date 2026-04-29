@@ -2,9 +2,11 @@
   "dependencies": {
     "@tanstack/react-query": "^5.96.2",
     "@tanstack/react-query-devtools": "^5.96.2",
+    "dotenv": "^17.4.2",
     "express": "^5.2.1",
-    "mongoose": "^9.5.0",
-    "octokit": "^5.0.5"
+    "octokit": "^5.0.5",
+    "pg": "^8.20.0",
+    "resend": "^6.12.2"
   },
   "devDependencies": {
     "@tanstack/eslint-plugin-query": "^5.96.2"
@@ -14,6 +16,8 @@
   "description": "A personal portfolio site built with React, Vite, and Tailwind CSS. The project is organized as a portfolio application inside the `portfolio/` folder and includes sections for about, education, projects, skills, and contact information.",
   "main": "index.js",
   "scripts": {
+    "dev": "node scripts/dev.js",
+    "server": "node server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
