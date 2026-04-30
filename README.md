@@ -54,7 +54,7 @@ npm install
 3. Start the development server:
 
 ```bash
-npm run dev
+npm run server
 ```
 
 4. Open the local URL shown by Vite in your browser.
@@ -63,7 +63,7 @@ npm run dev
 
 ```bash
 cd portfolio
-npm run build
+npm run dev
 ```
 
 ## Notes
