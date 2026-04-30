@@ -9,6 +9,6 @@ export default defineConfig({
     proxy: {
       "/api": "http://localhost:3001",
     },
-    base:"/portfolio-using-react",
+    base:"/Personal-Portfolio-Using-React/",
   },
 })
