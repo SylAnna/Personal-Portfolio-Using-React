@@ -154,7 +154,7 @@ const Messages = () => {
             <div className="border-l-4 border-page-accent bg-nav-accent/10 p-6 shadow-md shadow-section-divider/20">
               <h3 className="text-xl font-bold text-page-content">No messages yet</h3>
               <p className="mt-2 leading-7 text-page-content">
-                When someone submits the contact form, their message will appear here.
+               Previous submissions...
               </p>
             </div>
           )}
