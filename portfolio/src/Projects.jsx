@@ -32,7 +32,8 @@ const Projects = () => {
   useEffect(() => {
     async function getRepos() {
       try {
-        const response = await fetch("/api/projects")
+        const apiUrl = import.meta.env.VITE_API_URL || ""
+        const response = await fetch(`${apiUrl}/api/projects`)
 
         if (!response.ok) {
           const data = await parseJsonSafely(response)
