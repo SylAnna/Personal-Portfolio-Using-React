@@ -96,7 +96,7 @@ const Contact = () => {
       });
     } catch (error) {
       if (error instanceof TypeError) {
-        setStatus("Could not reach the server. Make sure `npm run dev` is running from the main project folder, or make sure the backend is running on http://localhost:3001.");
+        setStatus("Could not reach the server. Make sure `npm run server` is running from the main project ");
       } else {
         setStatus(error.message || "Failed to send message");
       }

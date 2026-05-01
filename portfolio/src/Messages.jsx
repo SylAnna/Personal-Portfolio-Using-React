@@ -47,7 +47,7 @@ const Messages = () => {
       setMessages(data);
     } catch (error) {
       if (error instanceof TypeError) {
-        setError("Could not reach the messages server. Run `npm run dev` from the main project.");
+        setError("Could not reach the messages server. Run `npm run server` from the main project.");
       } else {
         setError(error.message || "Failed to load messages");
       }

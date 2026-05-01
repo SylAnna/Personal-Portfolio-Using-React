@@ -52,7 +52,7 @@ async function startServer() {
     } catch (error) {
         // The projects API can still work without the database, but messages need PostgreSQL.
         console.error("Database init failed:", error);
-        console.error("Messages API will not work until PostgreSQL is running and reachable.");
+        console.error("Messages will not work until PostgreSQL is running and reachable.");
     }
 
     app.listen(PORT, () => {
