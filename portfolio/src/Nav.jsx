@@ -1,16 +1,19 @@
 import { useState } from 'react'
 
 const Nav = ({ theme, setTheme, showMessages }) => {
+  // I need state here because the mobile menu changes when someone clicks the menu button.
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
     <nav className="sticky top-0 z-50 border-b border-nav-text bg-nav-bg">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
+        {/* The name works like a logo. On the messages page it takes the user back home. */}
         <a href={showMessages ? "/" : "#about"} className="text-lg font-semibold text-nav-text uppercase tracking-wider hover:text-nav-accent">
           Sylvia
         </a>
 
         <ul className="hidden items-center gap-6 text-sm lg:flex">
+          {/* If I am on the messages page, the normal section links would not help, so I show Home instead. */}
           {showMessages ? (
             <li>
               <a className="text-nav-text hover:text-nav-accent" href="/">Home</a>
@@ -41,6 +44,7 @@ const Nav = ({ theme, setTheme, showMessages }) => {
 
         <div className="hidden lg:block">
           <select
+            // This dropdown calls setTheme from App.jsx so the whole page theme can change.
             value={theme}
             onChange={(e) => setTheme(e.target.value)}
             className="rounded-sm border border-nav-text bg-nav-bg px-4 py-2 text-sm text-nav-text outline-none hover:text-nav-accent"
@@ -54,6 +58,7 @@ const Nav = ({ theme, setTheme, showMessages }) => {
         </div>
 
         <div className="flex items-center gap-3 lg:hidden">
+          {/* This is the smaller theme dropdown for phone/tablet screens. */}
           <select
             value={theme}
             onChange={(e) => setTheme(e.target.value)}
@@ -68,6 +73,7 @@ const Nav = ({ theme, setTheme, showMessages }) => {
 
           <button
             type="button"
+            // Clicking this flips the menu from closed to open, or open to closed.
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="flex h-10 w-10 items-center justify-center text-nav-text hover:text-nav-accent"
             aria-label="Toggle navigation menu"
@@ -85,6 +91,7 @@ const Nav = ({ theme, setTheme, showMessages }) => {
       {isMenuOpen && (
         <div className="border-t border-nav-text bg-nav-bg lg:hidden">
           <div className="mx-auto flex max-w-6xl flex-col px-4 py-4 sm:px-6">
+            {/* When the menu is open, I show the same links as desktop but stacked vertically. */}
             {showMessages ? (
               <a className="border-b border-nav-text px-2 py-3 text-nav-text hover:text-nav-accent" href="/" onClick={() => setIsMenuOpen(false)}>Home</a>
             ) : (

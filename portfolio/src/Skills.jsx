@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+// I put the skills in an array because the card layout repeats.
+// This way, changing a skill only means editing this list instead of editing the JSX below.
 const skills = [
   { name: "HTML", level: 90, detail: "Semantic pages and structured content" },
   { name: "CSS", level: 85, detail: "Responsive layouts, themes, and styling" },
@@ -12,6 +14,7 @@ const skills = [
 ];
 
 const skillGroups = [
+  // These groups are for the smaller category cards on the right side of the Skills section.
   {
     title: "Frontend",
     items: ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
@@ -31,9 +34,11 @@ const skillGroups = [
 ];
 
 const Skills = () => {
+  // animate starts false so the bars begin at 0 width.
   const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
+    // After the component loads, I change animate to true so the bars grow to their percentages.
     const timer = setTimeout(() => setAnimate(true), 100);
     return () => clearTimeout(timer);
   }, []);
@@ -49,6 +54,7 @@ const Skills = () => {
 
         <div className="mt-10 grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
           <div className="space-y-5">
+            {/* I use map here so every item in the skills array creates one progress bar. */}
             {skills.map((skill) => (
               <div key={skill.name} className="border-l-4 border-page-accent bg-nav-accent/10 p-4 shadow-md shadow-section-divider/20">
                 <div className="mb-2 flex justify-between gap-4 text-page-content">
@@ -62,6 +68,7 @@ const Skills = () => {
                 <div className="h-4 w-full overflow-hidden rounded-full bg-white/80">
                   <div
                     className="h-full rounded-full bg-page-accent transition-all duration-1000 ease-in-out"
+                    // If animate is false the bar is 0%. When it becomes true, it grows to the skill level.
                     style={{ width: animate ? `${skill.level}%` : "0%" }}
                   />
                 </div>
@@ -78,6 +85,7 @@ const Skills = () => {
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+              {/* These group cards are also made with map so the list can grow later. */}
               {skillGroups.map((group) => (
                 <div key={group.title} className="bg-content-bg p-5 shadow-md shadow-section-divider/20 border border-nav-accent/30">
                   <h3 className="text-lg font-bold text-page-content">{group.title}</h3>

@@ -1,16 +1,22 @@
 import { useCallback, useEffect, useState } from "react";
 
+// I use the same backend links as the contact form because this page reads the saved form messages.
+// The Render link works online, and localhost works when I am testing on my computer.
 const apiUrls = [
   import.meta.env.VITE_API_URL || "",
   "http://localhost:3001",
 ];
 
 const Messages = () => {
+  // messages starts empty, then gets filled with rows from the database.
   const [messages, setMessages] = useState([]);
+  // loading is true while I am waiting for the backend to respond.
   const [loading, setLoading] = useState(true);
+  // error stays blank unless something goes wrong while loading or deleting.
   const [error, setError] = useState("");
 
   const getMessages = useCallback(async () => {
+    // When this runs, I ask the backend for every saved message.
     setLoading(true);
     setError("");
 
@@ -18,6 +24,7 @@ const Messages = () => {
       let response;
       let data;
 
+      // Try each backend URL until one of them answers.
       for (const url of apiUrls) {
         try {
           response = await fetch(`${url}/api/messages`);
@@ -29,6 +36,7 @@ const Messages = () => {
       }
 
       if (!response) {
+        // If none of the URLs worked, show a clearer error for the page.
         throw new TypeError("Messages server is not reachable");
       }
 
@@ -49,6 +57,7 @@ const Messages = () => {
   }, []);
 
   async function deleteMessage(id) {
+    // Before deleting, ask first so I do not remove a message by mistake.
     const confirmDelete = window.confirm("Delete this message?");
 
     if (!confirmDelete) {
@@ -59,6 +68,7 @@ const Messages = () => {
       let response;
       let data;
 
+      // Send a DELETE request to the backend with the message id in the URL.
       for (const url of apiUrls) {
         try {
           response = await fetch(`${url}/api/messages/${id}`, {
@@ -86,9 +96,11 @@ const Messages = () => {
   }
 
   useEffect(() => {
+    // Load the saved messages when this page first opens.
     getMessages();
   }, [getMessages]);
 
+  // Since the backend sorts newest first, the first message is the newest one.
   const newestMessage = messages[0];
 
   return (
@@ -122,6 +134,7 @@ const Messages = () => {
           </div>
 
           <div className="grid gap-4 sm:grid-cols-3">
+            {/* These boxes summarize the message list before showing every full message. */}
             <div className="border-l-4 border-page-accent bg-nav-accent/10 p-5 shadow-md shadow-section-divider/20">
               <p className="text-3xl font-bold text-page-accent">{messages.length}</p>
               <p className="mt-1 text-sm font-bold text-page-content">Total messages</p>
@@ -160,6 +173,7 @@ const Messages = () => {
           )}
 
           <div className="grid gap-4">
+            {/* I use map so each message row from the database becomes one message card. */}
             {messages.map((message) => (
               <div
                 key={message.id}

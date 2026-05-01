@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+// I keep the backend links in a list so the form can work in two places:
+// the deployed Render backend first, and then localhost when I am coding locally.
 const apiUrls = [
   import.meta.env.VITE_API_URL || "",
   "http://localhost:3001",
@@ -21,15 +23,20 @@ const contactDetails = [
 ];
 
 const Contact = () => {
+  // formData is one object that holds all three form inputs together.
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
+  // status is the message the visitor sees after they submit the form.
   const [status, setStatus] = useState("");
+  
+  // isSubmitting helps stop the button from being clicked over and over while it is sending.
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   function handleChange(e) {
+    // I use the input's name attribute to know which part of formData to update.
     const { name, value } = e.target;
 
     setFormData((prev) => ({
@@ -39,6 +46,7 @@ const Contact = () => {
   }
 
   async function sendMessage() {
+    // This function sends the form data to the backend route that saves messages.
     for (const url of apiUrls) {
       try {
         const response = await fetch(`${url}/api/messages`, {
@@ -49,11 +57,12 @@ const Contact = () => {
           body: JSON.stringify(formData),
         });
 
+        // The backend sends JSON back, so I read that before returning the result.
         const data = await response.json();
 
         return { response, data };
       } catch {
-        // Try the next API url.
+        // If one backend link does not work, move on and try the next one.
       }
     }
 
@@ -62,6 +71,7 @@ const Contact = () => {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    // Preventing default keeps the browser from refreshing the whole page on submit.
     setStatus("");
     setIsSubmitting(true);
 
@@ -75,8 +85,10 @@ const Contact = () => {
       if (data.emailSent) {
         setStatus("Message sent successfully!");
       } else {
+        // I still count it as saved if the database worked but the email part failed.
         setStatus(`Message saved, but the email did not send. ${data.emailError || "Check the backend terminal for the Resend error."}`);
       }
+      // Clear the form after a successful save so the visitor can see it went through.
       setFormData({
         name: "",
         email: "",
@@ -119,7 +131,8 @@ const Contact = () => {
               </a>
             </div>
 
-            <div className="mt-8 grid gap-4">
+          <div className="mt-8 grid gap-4">
+              {/* I loop through contactDetails so these info cards are easy to edit later. */}
               {contactDetails.map((detail) => (
                 <div key={detail.title} className="bg-content-bg p-4 shadow-sm">
                   <h3 className="font-bold text-page-content">{detail.title}</h3>
@@ -130,6 +143,7 @@ const Contact = () => {
           </div>
 
           <form
+            // When this form submits, handleSubmit runs instead of a normal page reload.
             onSubmit={handleSubmit}
             className="flex flex-col gap-4 border border-nav-accent/30 bg-content-bg p-6 text-page-content shadow-md shadow-section-divider/40"
           >

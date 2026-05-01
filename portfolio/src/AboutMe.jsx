@@ -1,5 +1,6 @@
 const AboutMe = () => {
   return (
+    // This is the first section people see, so it introduces me and links to the important parts.
     <section id="about" className="border-b-2 border-section-divider bg-content-bg">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 md:py-16 lg:grid-cols-[1.2fr_0.8fr] lg:items-center lg:gap-12 lg:px-8 lg:py-20">
         <div className="order-2 lg:order-1">
@@ -27,6 +28,7 @@ const AboutMe = () => {
           </div>
 
           <div className="mt-10 grid gap-4 md:grid-cols-2">
+            {/* These cards are short personal notes so the site feels more like me and less like only a resume. */}
             <div className="border-l-4 border-page-accent bg-nav-accent/10 p-5 shadow-md shadow-section-divider/20">
               <h2 className="text-lg font-bold text-page-content">Hobbies</h2>
               <p className="mt-2 text-sm leading-6 text-page-content sm:text-base">

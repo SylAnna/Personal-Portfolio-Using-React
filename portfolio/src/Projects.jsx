@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react"
 
+// I read API errors carefully because sometimes the server sends text instead of JSON.
+// This helper lets the page keep going instead of breaking if that happens.
 async function parseJsonSafely(response) {
   const text = await response.text()
   if (!text) {
@@ -14,6 +16,8 @@ async function parseJsonSafely(response) {
 }
 
 async function fetchGithubReposDirectly() {
+  // This is the backup way to load projects. If my own backend route is not working,
+// I can still ask GitHub directly for my public repositories.
   const response = await fetch(
     "https://api.github.com/users/SylAnna/repos?sort=updated&per_page=100"
   )
@@ -26,24 +30,34 @@ async function fetchGithubReposDirectly() {
 }
 
 const Projects = () => {
+  // repos starts as an empty array because nothing has loaded from GitHub yet.
+  // After the fetch works, setRepos fills this with project objects.
   const [repos, setRepos] = useState([]);
+  // error stays blank unless the backend and the backup GitHub request both fail.
   const [error, setError] = useState("");
 
   useEffect(() => {
+    // I use useEffect because I want the projects to load after this component appears.
+    // That way the page can render first, then the project cards get added when the data comes back.
     async function getRepos() {
       try {
+        // VITE_API_URL is the Render backend link when the site is live.
+        // If it is empty while coding locally, Vite sends /api/projects to localhost through the proxy.
         const apiUrl = import.meta.env.VITE_API_URL || ""
         const response = await fetch(`${apiUrl}/api/projects`)
 
         if (!response.ok) {
+          // If the server says the request failed, try to read the error message it sent back.
           const data = await parseJsonSafely(response)
           throw new Error(data.error || "Failed to load projects")
         }
 
+        // If everything worked, turn the response into JavaScript data and save it in state.
         const data = await response.json()
         setRepos(data)
       } catch (err) {
         try {
+          // If my backend fails, I try GitHub directly before showing an error on the page.
           const fallbackRepos = await fetchGithubReposDirectly()
           setRepos(fallbackRepos)
           setError("")
@@ -56,6 +70,7 @@ const Projects = () => {
   }, [])
 
   function formatDate(date) {
+    // GitHub gives the updated date in a computer format, so I format it for people to read.
     if (!date) {
       return "Recently updated"
     }
@@ -89,6 +104,7 @@ const Projects = () => {
           </div>
 
           <div className="mt-8 grid gap-4 sm:grid-cols-3">
+            {/* These summary boxes use the loaded repo count and a few quick project notes. */}
             <div className="border-l-4 border-page-accent bg-nav-accent/10 p-5 shadow-md shadow-section-divider/20">
               <p className="text-3xl font-bold text-section-divider">{repos.length}</p>
               <p className="mt-1 text-sm font-bold text-page-content">GitHub repositories loaded</p>
@@ -106,6 +122,7 @@ const Projects = () => {
           {error && <p className="text-red-500">{error}</p>}
 
           <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {/* I loop through repos with map, and each repo becomes one project card. */}
             {repos.map((repo) => (
               <div key={repo.id} className="flex min-h-64 flex-col justify-between border border-nav-accent/30 bg-content-bg p-5 shadow-md shadow-section-divider/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-section-divider/40 duration-300">
                 <div>

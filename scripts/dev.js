@@ -10,6 +10,7 @@ const clientDir = path.join(rootDir, "portfolio");
 const children = [];
 
 function runProcess(label, cwd, args) {
+  // This starts a command in the background. I use it for both the backend and frontend.
   const child = isWindows
     ? spawn(shellCommand, ["/c", npmCommand, ...args], {
         cwd,
@@ -44,6 +45,7 @@ function shutdown(exitCode = 0) {
 
   shuttingDown = true;
 
+  // When I press Ctrl+C, this stops both dev servers at the same time.
   for (const child of children) {
     if (!child.killed) {
       child.kill();
